@@ -1,0 +1,55 @@
+﻿<Page x:Class="Trading.UI.Home"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Trading.UI"
+      mc:Ignorable="d" 
+      d:DesignHeight="1200" d:DesignWidth="1600"
+      Title="Home" WindowTitle="Equity Share">
+
+
+
+    <Grid Margin="0,0,-673,-136" ShowGridLines="True">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="14*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Name="headerCaption" HorizontalAlignment="Left" Text="SGZ Online Trading System" TextAlignment="Center" FontSize="32"></TextBlock>
+
+        <DataGrid Name="dgShareDetails" AlternatingRowBackground="#FFC4B0B0" 
+                  Height="180" Width="550" AutoGenerateColumns="False" Grid.RowSpan="2"
+                  HorizontalAlignment="Left"  Margin="33,70,0,0" VerticalAlignment="Top">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Company}" Width="200" Header="Company"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Symbol}" Width="100" Header="Symbol"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding NoOfShares}" Width="100" Header="Share"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Margin="33,180,0,0" Width="550" Height="200" Grid.RowSpan="3">
+            <TabItem x:Name="tabTrade" Header="Equity Share">
+                <Grid Background="#FFE5E5E5" Margin="0,0,3,-57" RenderTransformOrigin="0.499,0.442">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="52*"/>
+                        <ColumnDefinition Width="689*"/>
+                    </Grid.ColumnDefinitions>
+                    <RadioButton x:Name="radioButton" Content="BUY" Height="22" Margin="-17.965,12.04,475.535,0" VerticalAlignment="Top" ToolTip="To buy the share" Grid.Column="1"/>
+                    <RadioButton x:Name="radioButton_Copy"  Content="SELL" Height="22" Margin="61.5,12.04,0,0" VerticalAlignment="Top" Width="50" HorizontalAlignment="Left" ToolTip="To sell the share" Grid.Column="1"/>
+                    <Label x:Name="label" Content="Symbol" HorizontalAlignment="Left" Margin="-20,87.04,0,105.52" Width="83" Grid.Column="1"/>
+                    <ComboBox x:Name="comboBox" Height="25" Width="120" Margin="42.499,87.04,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="1"/>
+                    <Label x:Name="label_Copy" Content="Current Rate : " Height="30" Margin="221,65.25,185,0" VerticalAlignment="Top" FontSize="10" Grid.Column="1"/>
+                    <TextBox x:Name="textBox" Height="25" Margin="225,87.04,147,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Grid.Column="1"/>
+                    <Button x:Name="btbSubmit" Content="Submit" Margin="258.5,0,142.5,75" Grid.Column="1" Width="102.035" Height="22" VerticalAlignment="Bottom"/>
+                    <Button x:Name="btnCancel" Content="Cancel" Margin="0,0,16,75" Grid.Column="1" HorizontalAlignment="Right" Width="102.035" Height="22" VerticalAlignment="Bottom" />
+                    <Label x:Name="label_Copy1" Content="Exchange" HorizontalAlignment="Left" Margin="-20,39.04,0,0" Width="83" Grid.Column="1" Height="36.48" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="cboExchange" Height="25" Width="120" Margin="42.499,39.04,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="1"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Page>

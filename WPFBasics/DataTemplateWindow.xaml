@@ -1,0 +1,43 @@
+﻿<Window x:Class="Trading.UI.DataTemplateWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Trading.UI"
+        xmlns:model="clr-namespace:Trading.Models;assembly=Trading.Models"
+        mc:Ignorable="d"
+        Title="DataTemplateWindow" Height="300" Width="300">
+    <Window.Resources>
+        <DataTemplate DataType="{ x:Type model:Consumer }">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="200"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Name="nameLbl" Margin="2" Target="{ Binding ElementName=nameText }">_Name</Label>
+                <TextBox Name="nameText" Grid.Column="1" Margin="2" Text="{ Binding Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            </Grid>
+
+        </DataTemplate>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <ListBox ItemsSource="{Binding}"></ListBox>
+        
+        <StackPanel Grid.Row="1">
+            <Button Content="Click Me" Click="Button_Click"></Button>
+        </StackPanel>
+
+    </Grid>
+</Window>
